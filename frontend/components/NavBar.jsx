@@ -1,0 +1,1 @@
+// Displays the navigation bar with app name & logo (Addtional - connect to github)
