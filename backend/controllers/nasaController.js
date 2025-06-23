@@ -3,11 +3,32 @@ const axios = require('axios');
 
 const getTimeline = async (req, res) => {
     try {
-      const { dob } = req.query;
+      const dob = req.query.dob?.trim();
+      console.log('DOB timeline: ', dob);      
 
-      res.json({ message: `Timeline route hit! DOB: ${dob}` });
+      // If DOB is not provided in the URL - send error message
+      if(!dob){
+        return res.status(400).json({error: 'DOB is required'});
+      }
+
+      // Extract birth year from DOB
+      const birthYear = parseInt(dob.slice(0, 4));
+
+      // Extract current year
+      const currentYear = new Date().getFullYear();
+
+      // Build array of years from birth year to current year
+      const timeline = [];
+      for(let i = birthYear; i <= currentYear; i++){
+        timeline.push(i);
+      }
+
+      // Send timeline array back
+      res.json({timeline});
     } catch (error) {
-      res.status(500).json({ error: 'Server error in getTimeline' });
+      // If error, print the error and send error response
+      console.error('Error in fetching timeline', error.response?.data || error.message);
+      res.status(500).json({ error: 'Failed to generate timeline' });
     }
 };
 
@@ -29,7 +50,7 @@ const getPhotoByYear = async (req, res) => {
       // Combine with year the user clicked on
       const photoDate = `${year}-${monthDay}`;
 
-      // MAke the request to NASA APOD with date
+      // Make the request to NASA APOD with date
       const response = await axios.get('https://api.nasa.gov/planetary/apod', {
         params: {
           date: photoDate,
