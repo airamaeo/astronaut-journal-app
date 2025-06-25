@@ -4,8 +4,8 @@ const axios = require('axios');
 const getTimeline = async (req, res) => {
     try {
       const dob = req.query.dob?.trim();
-      console.log('DOB timeline: ', dob);      
-
+      console.log('DOB timeline: ', dob);
+      
       // If DOB is not provided in the URL - send error message
       if(!dob){
         return res.status(400).json({error: 'DOB is required'});

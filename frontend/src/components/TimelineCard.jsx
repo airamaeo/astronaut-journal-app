@@ -29,7 +29,7 @@ export default function TimelineCard({year, dob}) {
                 {error && <p>{error}</p>}         {/* Show if error */}
                 {!loading && photo && (         /* Show image & year */
                     <>
-                        <img src={photo.image} alt={photo.title} className="thumbnail" />
+                        <img src={photo.image} alt={photo.title} className='timeline-thumbnail' />
                         <h4>{year}</h4>
                     </>
                 )}
