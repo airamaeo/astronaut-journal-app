@@ -2,11 +2,13 @@
 // Displays series of timelineCards & handles loading & error states
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Timeline() {
     const [timeline, setTimeline] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const dob = localStorage.getItem('dob');
@@ -29,12 +31,19 @@ export default function Timeline() {
 
     if(loading) return <h4>Loading timeline...</h4>;
     if(error) return <h4>{error}</h4>;
+
     return (
         <div>
             <h2>This is the Timeline page</h2>
             <ul> 
                 {timeline.map((year) => (
-                    <li key={year}>{year}</li> // Display each year inside a list
+                    <button 
+                        key={year} 
+                        onClick={() => navigate(`/photo/${year}`)}
+                        className='timeline-btn'
+                    >
+                        {year}
+                    </button> // Display each year inside a list
                 ))}
             </ul>
         </div>
