@@ -3,15 +3,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import TimelineCard from '../components/TimelineCard';
 
 export default function Timeline() {
     const [timeline, setTimeline] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const navigate = useNavigate(); 
+    const dob = localStorage.getItem('dob');
 
     useEffect(() => {
-        const dob = localStorage.getItem('dob');
         if(!dob){
             setError('DOB not found. Please set your date of birth.');
             setLoading(false);
@@ -33,19 +34,10 @@ export default function Timeline() {
     if(error) return <h4>{error}</h4>;
 
     return (
-        <div>
-            <h2>This is the Timeline page</h2>
-            <ul> 
-                {timeline.map((year) => (
-                    <button 
-                        key={year} 
-                        onClick={() => navigate(`/photo/${year}`)}
-                        className='timeline-btn'
-                    >
-                        {year}
-                    </button> // Display each year inside a list
-                ))}
-            </ul>
+        <div className='timeline-grid'>
+            {timeline.map((year) => (
+                <TimelineCard key={year} year={year} dob={dob} />
+            ))}
         </div>
     );
 }  
