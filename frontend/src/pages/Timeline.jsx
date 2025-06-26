@@ -38,6 +38,9 @@ export default function Timeline() {
             {timeline.map((year) => (
                 <TimelineCard key={year} year={year} dob={dob} />
             ))}
+            <button onClick={() => navigate('/')} className="back-btn">
+                Back to home
+            </button>
         </div>
     );
 }  

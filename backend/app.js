@@ -2,6 +2,7 @@ const express = require('express'); // Loads express framework to handle HTTP re
 const cors = require('cors'); // CORS (Cross-Origin Resource Sharing) support for frontend & backend communication
 const dotenv = require('dotenv'); // Loads environment variables from .env file (required to use NASA API Key securely)
 const nasaRoutes = require('./routes/nasaRoutes'); // Loads all routes(URLs) in nasaRoutes
+const axios = require('axios');
 
 dotenv.config(); // Makes variables in .env available
 
