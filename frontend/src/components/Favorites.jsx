@@ -10,10 +10,12 @@ export default function Favorites(){
     const [photos, setPhotos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [feedbackMsg, setFeedbackMsg] = useState('');
 
     // Navigation hook for back button
     const navigate = useNavigate();
 
+    // Load favorites from localStorage
     useEffect(() => {
         const stored = localStorage.getItem('favorites');
 
@@ -30,11 +32,22 @@ export default function Favorites(){
         setLoading(false);
     },[]);
 
+    // Remove from favorites
     const handleRemove = (dateToRemove) => {
         const updated = photos.filter(p => p.date !== dateToRemove);
         setPhotos(updated);
         localStorage.setItem('favorites', JSON.stringify(updated));
+        setFeedbackMsg('Removed from favorites');
+        setTimeout(() => setFeedbackMsg(''), 2000);
     };
+
+    // Clear all favorites
+    const handleClearAllFavorites = () => {
+        localStorage.removeItem('favorites');
+        setPhotos([]);
+        setFeedbackMsg("Removed from favorites");
+        setTimeout(() => setFeedbackMsg(""), 2000);
+    }
 
     if(loading) return <h4>Loading favorites...</h4>;
     if(error) return <h4>{error}</h4>;    
@@ -46,25 +59,35 @@ export default function Favorites(){
             {photos.length === 0 ? (
                 <p>No favorite photos saved</p>
             ):(
-                <div className="photos-grid">
-                    {photos.map(photo => (
-                        <div key={photo.date} className="photos-card">
-                            <h3>{photo.title}</h3>
-                            <p>{photo.date}</p>
-                            <img 
-                                src={photo.image} 
-                                alt={photo.title} 
-                                className="photo-thumb"
-                            />
-                            <button
-                                onClick={() => handleRemove(photo.date)}
-                                className="remove-btn"
-                            >
-                                Remove from favorites
-                            </button>
-                        </div>
-                    ))}
-                </div>
+                <>
+                    <button
+                        onClick={handleClearAllFavorites}
+                        className="clear-btn"
+                    >
+                    Clear all favorites
+                    </button>
+
+                    <div className="photos-grid">
+                        {photos.map(photo => (
+                            <div key={photo.date} className="photos-card">
+                                <h3>{photo.title}</h3>
+                                <p>{photo.date}</p>
+                                <img 
+                                    src={photo.image} 
+                                    alt={photo.title} 
+                                    className="photo-thumb"
+                                />
+                                <button
+                                    onClick={() => handleRemove(photo.date)}
+                                    className="remove-btn"
+                                >
+                                    Remove from favorites
+                                </button>
+
+                            </div>
+                        ))}
+                    </div>
+                </>
             )}
 
             <button onClick={() => navigate('/')} className="back-btn">
