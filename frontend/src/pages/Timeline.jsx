@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TimelineCard from '../components/TimelineCard';
+import '../styles/Timeline.css';
 
 export default function Timeline() {
     const [timeline, setTimeline] = useState([]);
