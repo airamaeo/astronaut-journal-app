@@ -3,7 +3,7 @@
 // Remove from favorites button
 
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Favorites(){
     // React state hooks
@@ -22,6 +22,7 @@ export default function Favorites(){
         if(stored){
             try {
                 const favorites = JSON.parse(stored);
+                favorites.sort((a, b) => new Date(b.date) - new Date(a.date));
                 setPhotos(favorites);
             } catch (err) {
                 setError('Unable to load favorites');
@@ -70,13 +71,20 @@ export default function Favorites(){
                     <div className="photos-grid">
                         {photos.map(photo => (
                             <div key={photo.date} className="photos-card">
-                                <h3>{photo.title}</h3>
-                                <p>{photo.date}</p>
-                                <img 
-                                    src={photo.image} 
-                                    alt={photo.title} 
-                                    className="photo-thumb"
-                                />
+                                <Link 
+                                    to={`/photo/${photo.date.slice(0, 4)}`}
+                                    state={{ photo }}
+                                    className="photo-link"
+                                >
+                                    <h3>{photo.title}</h3>
+                                    <p>{photo.date}</p>
+                                    <img 
+                                        src={photo.image} 
+                                        alt={photo.title} 
+                                        className="photo-thumb"
+                                    />
+                                </Link>
+
                                 <button
                                     onClick={() => handleRemove(photo.date)}
                                     className="remove-btn"
