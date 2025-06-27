@@ -55,9 +55,6 @@ export default function PhotoDetail() {
 
     return (
         <div className="photodetail-container">
-            <button onClick={() => navigate('/timeline')} className="back-btn">
-                Back to timeline
-            </button>
             <div className="info-container">
                 <h2>{photo.title}</h2>
                 <p>{photo.date}</p>
@@ -67,6 +64,13 @@ export default function PhotoDetail() {
                     {saved ? "Save to favorites" : "Save to favorites"}
                 </button>
             </div>
+
+            <button onClick={() => navigate('/favorites')}>
+                    View Favorites
+            </button>
+            <button onClick={() => navigate('/timeline')} className="back-btn">
+                Back to timeline
+            </button>
         </div>
     )
 }

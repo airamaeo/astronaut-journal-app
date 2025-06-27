@@ -33,6 +33,9 @@ export default function Home() {
                     />
                 </label>
                 <button type='submit' className='explore-Btn'>Explore timeline</button>
+                <button onClick={() => navigate('/favorites')}>
+                    View Favorites
+                </button>
             </form>
         </div>
     )

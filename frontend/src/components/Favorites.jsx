@@ -3,12 +3,16 @@
 // Remove from favorites button
 
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function Favorites(){
     // React state hooks
     const [photos, setPhotos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+
+    // Navigation hook for back button
+    const navigate = useNavigate();
 
     useEffect(() => {
         const stored = localStorage.getItem('favorites');
@@ -26,7 +30,46 @@ export default function Favorites(){
         setLoading(false);
     },[]);
 
+    const handleRemove = (dateToRemove) => {
+        const updated = photos.filter(p => p.date !== dateToRemove);
+        setPhotos(updated);
+        localStorage.setItem('favorites', JSON.stringify(updated));
+    };
+
+    if(loading) return <h4>Loading favorites...</h4>;
+    if(error) return <h4>{error}</h4>;    
+
     return (
-        <div className="favorites-container"></div>
+        <div className="favorites-container">
+            <h2>Your Favorites:</h2>
+
+            {photos.length === 0 ? (
+                <p>No favorite photos saved</p>
+            ):(
+                <div className="photos-grid">
+                    {photos.map(photo => (
+                        <div key={photo.date} className="photos-card">
+                            <h3>{photo.title}</h3>
+                            <p>{photo.date}</p>
+                            <img 
+                                src={photo.image} 
+                                alt={photo.title} 
+                                className="photo-thumb"
+                            />
+                            <button
+                                onClick={() => handleRemove(photo.date)}
+                                className="remove-btn"
+                            >
+                                Remove from favorites
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            <button onClick={() => navigate('/')} className="back-btn">
+                Back to home
+            </button>
+        </div>
     )
 }
