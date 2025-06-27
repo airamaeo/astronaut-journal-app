@@ -2,15 +2,19 @@
 // Fetches single APOD from backend /api/nasa/photo/:year
 // Displays: Image, Title, Full explanation, Back button
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 
 export default function PhotoDetail() {
     const {year} = useParams(); // Get year from URL
 
+    const location = useLocation();
+    const statePhoto = location.state?.photo;
+    console.log("Photo from route state:", statePhoto);
+
     // React state hooks
-    const [photo, setPhoto] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [photo, setPhoto] = useState(statePhoto || null);
+    const [loading, setLoading] = useState(!statePhoto);
     const [error, setError] = useState('');
     const [saved, setSaved] = useState(false);
 
@@ -21,16 +25,20 @@ export default function PhotoDetail() {
     const dob = localStorage.getItem('dob');
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/nasa/photo/${year}?dob=${dob}`)
-            .then((res) => {
-                setPhoto(res.data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError('Unable to load image details');
-                setLoading(false);
-            });
-    }, [year, dob]);
+        if(!statePhoto) {
+            axios.get(`http://localhost:5000/api/nasa/photo/${year}?dob=${dob}`)
+                .then((res) => {
+                    setPhoto(res.data);
+                    setLoading(false);
+                })
+                .catch((err) => {
+                    setError('Unable to load image details');
+                    setLoading(false);
+                });
+        }
+    }, [year, dob, statePhoto]);
+
+    console.log("Inside useEffect. statePhoto is:", statePhoto);
 
     // Handle save to favorites
     const handleSaveToFavorites = () => {

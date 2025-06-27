@@ -11,7 +11,7 @@ export default function TimelineCard({year, dob}) {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/nasa/photo/${year}?dob=${dob}`)
+            axios.get(`http://localhost:5000/api/nasa/photo/${year}?dob=${dob}`)
             .then((res) => {
                 setPhoto(res.data);
                 setLoading(false);
