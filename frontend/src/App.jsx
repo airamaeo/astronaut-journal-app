@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import './App.css'
 import StarfieldBackground from './components/StarfieldBackground';
 
@@ -10,7 +10,7 @@ import Favorites from './components/Favorites';
 
 function App() {
   return (
-      <Router>
+      <>
         <StarfieldBackground/>
         <NavBar/>
         <Routes>
@@ -19,7 +19,7 @@ function App() {
           <Route path="/photo/:year" element={<PhotoDetail />} />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
-      </Router>
+      </>
   )
 }
 

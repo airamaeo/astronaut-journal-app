@@ -2,13 +2,14 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/airamaeo.github.io/astronaut-journal-app",
+  "homepage": "https://airamaeo.github.io/astronaut-journal-app",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
