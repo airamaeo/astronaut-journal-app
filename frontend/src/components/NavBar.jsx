@@ -11,7 +11,7 @@ export default function NavBar () {
                 <Link to="/timeline">Timeline</Link>
                 <Link to="/favorites">Favorites</Link>
                 <a 
-                    href="https://airamaeo.github.io/astronaut-journal-app/"
+                    href="https://github.com/airamaeo/astronaut-journal-app"
                     target="_blank"
                 >
                     GitHub
