@@ -1,5 +1,10 @@
 #root {
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }

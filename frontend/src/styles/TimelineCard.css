@@ -1,0 +1,16 @@
+.timeline-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background: #f9f9f9;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.timeline-thumbnail {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}

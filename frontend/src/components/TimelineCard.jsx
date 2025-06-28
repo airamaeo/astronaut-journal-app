@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import '../styles/TimelineCard.css';
 
 export default function TimelineCard({year, dob}) {
     const [photo, setPhoto] = useState(null);
