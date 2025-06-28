@@ -4,6 +4,8 @@
 
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import '../styles/Favorites.css';
+import StarfieldBackground from '../components/StarfieldBackground';
 
 export default function Favorites(){
     // React state hooks
@@ -55,19 +57,13 @@ export default function Favorites(){
 
     return (
         <div className="favorites-container">
+            <StarfieldBackground />
             <h2>Your Favorites:</h2>
 
             {photos.length === 0 ? (
                 <p>No favorite photos saved</p>
             ):(
                 <>
-                    <button
-                        onClick={handleClearAllFavorites}
-                        className="clear-btn"
-                    >
-                    Clear all favorites
-                    </button>
-
                     <div className="photos-grid">
                         {photos.map(photo => (
                             <div key={photo.date} className="photos-card">
@@ -98,7 +94,14 @@ export default function Favorites(){
                 </>
             )}
 
-            <button onClick={() => navigate('/')} className="back-btn">
+            <button
+                onClick={handleClearAllFavorites}
+                className="clear-btn"
+            >
+            Clear all favorites
+            </button>
+
+            <button onClick={() => navigate('/')} className="backF-btn">
                 Back to home
             </button>
         </div>

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import StarfieldBackground from '../components/StarfieldBackground';
+import '../styles/PhotoDetail.css';
 
 export default function PhotoDetail() {
     const {year} = useParams(); // Get year from URL
@@ -70,17 +71,19 @@ export default function PhotoDetail() {
                 <p>{photo.date}</p>
                 <img src={photo.image} alt={photo.title} className="photo-full-info"/>
                 <p>{photo.description}</p>
-                <button onClick={handleSaveToFavorites} className="favorite-btn" disabled={saved}>
+                <button onClick={handleSaveToFavorites} className="favorites-btn" disabled={saved}>
                     {saved ? "Save to favorites" : "Save to favorites"}
                 </button>
             </div>
 
-            <button onClick={() => navigate('/favorites')}>
-                    View Favorites
-            </button>
-            <button onClick={() => navigate('/timeline')} className="back-btn">
-                Back to timeline
-            </button>
+            <div className="navF-buttons">
+                <button onClick={() => navigate('/favorites')} className="viewFaves-btn">
+                        View Favorites
+                </button>
+                <button onClick={() => navigate('/timeline')} className="backF-btn">
+                    Back to timeline
+                </button>
+            </div>
         </div>
     )
 }
