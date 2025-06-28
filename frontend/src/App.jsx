@@ -10,8 +10,8 @@ import Favorites from './components/Favorites';
 
 function App() {
   return (
-    <StarfieldBackground>
       <Router>
+        <StarfieldBackground/>
         <NavBar/>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,7 +20,6 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </Router>
-    </StarfieldBackground>
   )
 }
 

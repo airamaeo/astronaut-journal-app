@@ -24,17 +24,18 @@ export default function TimelineCard({year, dob}) {
     }, [year, dob]);
 
     return (
-        <Link to={`/photo/${year}`} className='timeline-card'>
-            <div className='card-content'>
-                {loading && <p>loading...</p>}  {/* Show loading state */}
-                {error && <p>{error}</p>}         {/* Show if error */}
-                {!loading && photo && (         /* Show image & year */
-                    <>
-                        <img src={photo.image} alt={photo.title} className='timeline-thumbnail' />
-                        <h4>{year}</h4>
-                    </>
-                )}
-            </div>
-        </Link>
+        <div className="timeline-card">
+            {loading && <p>Loading...</p>}
+            {error && <p>{error}</p>}
+            {!loading && photo && (
+                <>
+                    <img src={photo.image} alt={photo.title} className="timeline-thumbnail" />
+                    <h3>{year}</h3>
+                    <Link to={`/photo/${year}`} className="view-link">
+                        View APOD
+                    </Link>
+                </>
+            )}
+        </div>
     );
 };
