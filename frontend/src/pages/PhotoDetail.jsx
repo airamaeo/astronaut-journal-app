@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
+import StarfieldBackground from '../components/StarfieldBackground';
 
 export default function PhotoDetail() {
     const {year} = useParams(); // Get year from URL
@@ -63,6 +64,7 @@ export default function PhotoDetail() {
 
     return (
         <div className="photodetail-container">
+            <StarfieldBackground/>
             <div className="info-container">
                 <h2>{photo.title}</h2>
                 <p>{photo.date}</p>
