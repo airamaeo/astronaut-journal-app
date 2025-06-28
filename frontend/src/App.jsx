@@ -11,7 +11,10 @@ import Favorites from './components/Favorites';
 function App() {
   return (
       <>
-        <StarfieldBackground/>
+        {/* <StarfieldBackground/>  */}
+        {/* Removed from global App.jsx to avoid performance issues — 
+        now imported only on pages that need it for faster load and reduced resource usage. */}
+        
         <NavBar/>
         <Routes>
           <Route path="/" element={<Home />} />
