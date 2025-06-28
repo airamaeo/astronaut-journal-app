@@ -11,9 +11,12 @@ import Favorites from './components/Favorites';
 function App() {
   return (
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <StarfieldBackground>
       <Router>
 =======
+=======
+>>>>>>> Stashed changes
       <>
         <StarfieldBackground/>
 >>>>>>> Stashed changes
@@ -25,8 +28,12 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       </Router>
     </StarfieldBackground>
+=======
+      </>
+>>>>>>> Stashed changes
 =======
       </>
 >>>>>>> Stashed changes
