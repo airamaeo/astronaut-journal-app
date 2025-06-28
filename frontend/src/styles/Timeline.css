@@ -80,3 +80,26 @@
     background-color: #45a29e;
     color: white;
 }
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-card-wrapper {
+        width: 100%;
+        padding-left: 3rem;
+        text-align: left !important;
+    }
+
+    .timeline-card-wrapper.left,
+    .timeline-card-wrapper.right {
+        left: 0;
+    }
+
+    .timeline-card-wrapper.left::before,
+    .timeline-card-wrapper.right::before {
+        left: 10px;
+        right: auto;
+    }
+}

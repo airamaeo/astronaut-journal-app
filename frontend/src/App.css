@@ -8,3 +8,43 @@ html, body {
   padding: 0;
   height: 100%;
 }
+
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    font-size: 1.25rem;
+  }
+
+  .explore-Btn,
+  .clear-btn,
+  .backF-btn,
+  .favorites-btn,
+  .remove-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .photo-full-info {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.1rem;
+  }
+
+  .photo-thumb,
+  .photo-full-info {
+    max-height: 220px;
+  }
+
+  .photos-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .button-group,
+  .navF-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

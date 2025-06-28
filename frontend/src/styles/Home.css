@@ -135,3 +135,40 @@ input[type="date"] {
     color: white;
     box-shadow: 0 0 25px #45a29e, 0 0 40px #66fcf1;
 }
+
+@media (max-width: 768px) {
+.home-container {
+    padding: 1rem;
+}
+
+.home-container h1 {
+    font-size: 2rem;
+}
+
+input[type="date"] {
+    font-size: 0.95rem;
+}
+
+.explore-Btn {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+}
+}
+
+@media (max-width: 480px) {
+form {
+    gap: 0.75rem;
+}
+
+input[type="date"] {
+    width: 100%;
+}
+
+.explore-Btn {
+    width: 100%;
+}
+
+.home-container h1 {
+    font-size: 1.5rem;
+}
+}  
