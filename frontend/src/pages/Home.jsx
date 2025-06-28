@@ -3,6 +3,7 @@
 // Redirect to /timeline page
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import '../styles/Home.css';
 
 export default function Home() {
     const [dob, setDob] = useState('');
@@ -21,9 +22,10 @@ export default function Home() {
     }
     return(
         <div className="home-container">
-            <h1>Welcome to Astronaut's Journal</h1>
+            <h1>Welcome to the Astronaut's Journal</h1>
             <form onSubmit={handleSubmit}>
-                <label>Enter your DOB to explore your cosmic timeline:
+                <label><strong>Enter your DOB to explore your cosmic timeline:</strong>
+                    <br />
                     <br />
                     <input
                         type='date'

@@ -5,7 +5,7 @@ import '../styles/NavBar.css';
 export default function NavBar () {
     return (
         <nav className="navbar">
-            <div className="navbar-logo"> 🚀 Astronaut's Journal</div>
+            <div className="navbar-logo"> 🚀 Astronaut's APOD</div>
             <div>
                 <Link to="/">Home</Link>
                 <Link to="/timeline">Timeline</Link>
