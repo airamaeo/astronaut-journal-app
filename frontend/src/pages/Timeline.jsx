@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TimelineCard from '../components/TimelineCard';
 import '../styles/Timeline.css';
+import StarfieldBackground from '../components/StarfieldBackground';
 
 export default function Timeline() {
     const [timeline, setTimeline] = useState([]);
@@ -22,7 +23,8 @@ export default function Timeline() {
 
         axios.get(`http://localhost:5000/api/nasa/timeline?dob=${dob}`)
             .then((res) => {
-                setTimeline(res.data.timeline);
+                const sorted = [...res.data.timeline].sort((a, b) => b - a);
+                setTimeline(sorted);
                 setLoading(false);
             })
             .catch((error) => {
@@ -35,17 +37,22 @@ export default function Timeline() {
     if(error) return <h4>{error}</h4>;
 
     return (
-        <div className='timeline-grid'>
-            {timeline.map((year) => (
-                <TimelineCard key={year} year={year} dob={dob} />
+        <div className="timeline">
+            <StarfieldBackground />
+
+            {timeline.map((year, index) => (
+                <div
+                    key={year}
+                    className={`timeline-card-wrapper ${index % 2 === 0 ? 'left' : 'right'}`}
+                >
+                    <TimelineCard year={year} dob={dob} />
+                </div>
             ))}
-            
-            <button onClick={() => navigate('/')} className="back-btn">
-                Back to home
-            </button>
-            <button onClick={() => navigate('/favorites')}>
-                    View Favorites
-            </button>
+
+            <div className="timeline-buttons">
+                <button onClick={() => navigate('/')} className="back-btn">Back to Home</button>
+                <button onClick={() => navigate('/favorites')} className="favorite-btn">View Favorites</button>
+            </div>
         </div>
     );
 }  
