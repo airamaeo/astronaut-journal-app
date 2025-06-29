@@ -7,7 +7,7 @@ This project was built with using **React**, styled with care, and polished to b
 
 ## Live Demo
 
-Deployed at: 
+Deployed at: https://astronaut-journal-app.vercel.app/
 
 ## Features
 

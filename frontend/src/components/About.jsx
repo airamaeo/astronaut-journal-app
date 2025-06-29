@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import StarfieldBackground from '../components/StarfieldBackground';
 import '../styles/About.css';
 
@@ -39,6 +40,12 @@ return (
                 NASA APOD API
             </a> and is built with React.
             </p>
+
+            <div className="button-group">
+                <Link to="/" className="backF-btn">
+                    Back to Home
+                </Link>
+            </div>
         </div>
         </div>
     );
