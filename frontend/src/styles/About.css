@@ -1,0 +1,52 @@
+.about-page {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 100vh;
+    background: transparent;
+}
+
+.about-box {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.about-title {
+    color: #66fcf1;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-link {
+    color: #66fcf1;
+    text-decoration: underline;
+}
+
+.about-link:hover {
+    color: #45a29e;
+}
+
+.about-list {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .about-box {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-box {
+        padding: 1rem;
+    }
+}
