@@ -8,8 +8,7 @@ import StarfieldBackground from '../components/StarfieldBackground';
 import '../styles/PhotoDetail.css';
 
 export default function PhotoDetail() {
-    const {year} = useParams(); // Get year from URL
-
+    const { year } = useParams(); // Get year from URL
     const location = useLocation();
     const statePhoto = location.state?.photo;
     console.log("Photo from route state:", statePhoto);
@@ -26,9 +25,12 @@ export default function PhotoDetail() {
     // Get DOB from localStorage
     const dob = localStorage.getItem('dob');
 
+    // Backend URL from environment variable
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
     useEffect(() => {
-        if(!statePhoto) {
-            axios.get(`http://localhost:5000/api/nasa/photo/${year}?dob=${dob}`)
+        if (!statePhoto) {
+            axios.get(`${backendUrl}/api/nasa/photo/${year}?dob=${dob}`)
                 .then((res) => {
                     setPhoto(res.data);
                     setLoading(false);
@@ -38,16 +40,15 @@ export default function PhotoDetail() {
                     setLoading(false);
                 });
         }
-    }, [year, dob, statePhoto]);
+    }, [year, dob, statePhoto, backendUrl]);
 
     console.log("Inside useEffect. statePhoto is:", statePhoto);
 
     // Handle save to favorites
     const handleSaveToFavorites = () => {
-        if (!photo) return <h4>{error}</h4>;
+        if (!photo) return;
 
         const existing = JSON.parse(localStorage.getItem('favorites')) || [];
-
         const alreadySaved = existing.some(item => item.date === photo.date);
         if (alreadySaved) {
             setSaved(true);
@@ -59,26 +60,26 @@ export default function PhotoDetail() {
         setSaved(true);
     }
 
-    // Handle loading & error
+    // Handle loading & error states
     if (loading) return <h4>Loading photo...</h4>;
     if (error) return <h4>{error}</h4>;
 
     return (
         <div className="photodetail-container">
-            <StarfieldBackground/>
+            <StarfieldBackground />
             <div className="info-container">
                 <h2>{photo.title}</h2>
                 <p>{photo.date}</p>
-                <img src={photo.image} alt={photo.title} className="photo-full-info"/>
+                <img src={photo.image} alt={photo.title} className="photo-full-info" />
                 <p>{photo.description}</p>
                 <button onClick={handleSaveToFavorites} className="favorites-btn" disabled={saved}>
-                    {saved ? "Save to favorites" : "Save to favorites"}
+                    {saved ? "Saved to favorites" : "Save to favorites"}
                 </button>
             </div>
 
             <div className="navF-buttons">
                 <button onClick={() => navigate('/favorites')} className="viewFaves-btn">
-                        View Favorites
+                    View Favorites
                 </button>
                 <button onClick={() => navigate('/timeline')} className="backF-btn">
                     Back to timeline

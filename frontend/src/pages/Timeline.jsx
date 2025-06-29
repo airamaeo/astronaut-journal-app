@@ -21,13 +21,15 @@ export default function Timeline() {
             return;
         }
 
-        axios.get(`http://localhost:5000/api/nasa/timeline?dob=${dob}`)
+        const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+        axios.get(`${backendUrl}/api/nasa/timeline?dob=${dob}`)
             .then((res) => {
                 const sorted = [...res.data.timeline].sort((a, b) => b - a);
                 setTimeline(sorted);
                 setLoading(false);
             })
-            .catch((error) => {
+            .catch(() => {
                 setError('Unable to load timeline');
                 setLoading(false);
             });
@@ -55,4 +57,4 @@ export default function Timeline() {
             </div>
         </div>
     );
-}  
+}

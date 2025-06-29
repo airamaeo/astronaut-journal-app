@@ -6,13 +6,16 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/TimelineCard.css';
 
-export default function TimelineCard({year, dob}) {
+export default function TimelineCard({ year, dob }) {
     const [photo, setPhoto] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
     useEffect(() => {
-            axios.get(`http://localhost:5000/api/nasa/photo/${year}?dob=${dob}`)
+        setLoading(true);
+        axios.get(`${backendUrl}/api/nasa/photo/${year}?dob=${dob}`)
             .then((res) => {
                 setPhoto(res.data);
                 setLoading(false);
@@ -21,7 +24,7 @@ export default function TimelineCard({year, dob}) {
                 setError('Unable to load image');
                 setLoading(false);
             });
-    }, [year, dob]);
+    }, [year, dob, backendUrl]);
 
     return (
         <div className="timeline-card">
