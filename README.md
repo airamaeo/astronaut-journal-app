@@ -35,7 +35,7 @@ Deployed at: https://astronaut-journal-app.vercel.app/
 How to Use NASA Photo Explorer
 Follow these steps to explore and save your favorite NASA Astronomy Pictures of the Day (APOD):
 
-1. Add Your Date of Birth (or Any Date)
+1. Add Your Date of Birth (or Any Date from July 1st 1995)
 - On the Home page, use the date picker to select your date of birth or any date of interest.
 - Note: The NASA APOD archive begins in July 1995, so dates before that will not return results.
 
