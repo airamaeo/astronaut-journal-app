@@ -82,42 +82,43 @@ h2 {
 }
 
 @media (max-width: 768px) {
-.clear-btn,
-.backF-btn,
-.remove-btn {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-}
+    .clear-btn,
+    .backF-btn,
+    .remove-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
 
-h2 {
-    font-size: 1.5rem;
-}
+    h2 {
+        font-size: 1.5rem;
+    }
 
-.favorites-container {
-    padding: 1rem;
-}
+    .favorites-container {
+        padding: 1rem;
+    }
 
-.photos-card {
-    padding: 0.75rem;
-}
+    .photos-card {
+        padding: 0.75rem;
+    }
 }
 
 @media (max-width: 480px) {
-.clear-btn,
-.backF-btn {
-    width: 100%;
-}
+    .remove-btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
 
-.remove-btn {
-    width: 100%;
-    margin: 0.5rem 0;
-}
+    .photos-card {
+        flex-direction: column;
+    }
 
-.photos-card {
-    flex-direction: column;
-}
+    .photo-thumb {
+        max-height: 180px;
+    }
 
-.photo-thumb {
-    max-height: 180px;
-}
+    .clear-btn,
+    .backF-btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
 }
