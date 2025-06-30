@@ -30,6 +30,8 @@ export default function Home() {
                     <input
                         type='date'
                         value={dob}
+                        min='1995-07-01' // Limit the DOB range according to NASA APOD start date
+                        max={new Date().toISOString().split('T')[0]}
                         onChange={(e) => setDob(e.target.value)}
                         required
                     />
