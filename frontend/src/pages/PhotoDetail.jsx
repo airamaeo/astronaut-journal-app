@@ -78,10 +78,10 @@ export default function PhotoDetail() {
             </div>
 
             <div className="navF-buttons">
-                <button onClick={() => navigate('/favorites')} className="viewFaves-btn">
+                <button onClick={() => navigate('/favorites')} className="viewFavesP-btn">
                     View Favorites
                 </button>
-                <button onClick={() => navigate('/timeline')} className="backF-btn">
+                <button onClick={() => navigate('/timeline')} className="backP-btn">
                     Back to timeline
                 </button>
             </div>

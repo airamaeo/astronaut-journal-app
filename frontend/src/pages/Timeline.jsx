@@ -52,7 +52,7 @@ export default function Timeline() {
             ))}
 
             <div className="timeline-buttons">
-                <button onClick={() => navigate('/')} className="back-btn">Back to Home</button>
+                <button onClick={() => navigate('/')} className="backT-btn">Back to Home</button>
                 <button onClick={() => navigate('/favorites')} className="favorite-btn">View Favorites</button>
             </div>
         </div>

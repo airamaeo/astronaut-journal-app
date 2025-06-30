@@ -42,7 +42,7 @@ return (
             </p>
 
             <div className="button-group">
-                <Link to="/" className="backF-btn">
+                <Link to="/" className="backA-btn">
                     Back to Home
                 </Link>
             </div>

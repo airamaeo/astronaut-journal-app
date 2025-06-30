@@ -108,6 +108,8 @@ input[type="date"] {
     outline: none;
     background-color: #1f2833;
     color: #fff;
+    text-align: center;
+    width: 80%;
 }
 
 .explore-Btn {
@@ -147,7 +149,9 @@ input[type="date"] {
     }
 
     input[type="date"] {
-        font-size: 0.95rem;
+        font-size: 0.875rem;
+        width: 80%;
+        text-align: center;
     }
 
     .explore-Btn {
@@ -167,7 +171,9 @@ input[type="date"] {
     }
 
     input[type="date"] {
-        width: 100%;
+        font-size: 0.875rem;
+        width: 80%;
+        text-align: center;
     }
 
     .explore-Btn {
