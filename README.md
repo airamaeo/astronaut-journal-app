@@ -20,7 +20,7 @@ Deployed at: https://astronaut-journal-app.vercel.app/
 ## Tech Stack
 
 - **Frontend**: React, CSS Modules
-- **API**: [NASA Image and Video Library API](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf)
+- **API**: [NASA APIs](https://api.nasa.gov/)
 - **Deployment**: GitHub Pages and Vercel
 - **Other**: HTML5, JavaScript (ES6), Flexbox/Grid, Starfield animations via CSS
 - **localStorage**: To persist favorites 
