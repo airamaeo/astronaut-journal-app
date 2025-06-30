@@ -1,9 +1,9 @@
-# 🚀 NASA APOD Timeline App
+# 🚀 NASA Photo Explorer
 
 
-Welcome to **NASA Astronaut's Journal (Photo Explorer)** – a sleek, interactive web app where you can discover and favorite amazing photos from NASA's Astronomy Picture of the Day (APOD) API.
+Welcome to **NASA Astronaut's Journal (Photo Explorer)** –  a fun, interactive web app where you can browse and save stunning space photos from **NASA’s Astronomy Picture of the Day (APOD)**.
 
-This project was built with using **React**, styled with care, and polished to be fully **responsive** across all devices.
+Built with **React** and designed to look great on any device, it offers a simple way to enjoy space photography - whether you’re on your phone or computer.
 
 ## Live Demo
 
